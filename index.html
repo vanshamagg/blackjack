@@ -3,13 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/blackjack.css">
     <script src="./js/jquery-3.5.1.js"></script>
-    <title>Shuffle the Deck</title>
+    <title>BlackJack</title>
 </head>
 <body>
-    <input type="button" value="Shuffle" id = "btn1">
-    
-<script src="./js/cards.js"></script>
+    <div class = "table">
+        <div class = "dealer">
+            <div class = "deck">52</div>
+            <div class = "hand">
+                
+            </div>
+            <div class = "bet-value"></div>
+        </div>
+        <div class = "actions">
+            <input type="button" value="START" id="start-btn" onclick="beginRound()">
+        </div>
+
+        <div class = "players">
+            <div class = "player" id="player-1">
+                
+            </div>
+            <div class = "player" id = "player-2"></div>
+        </div>
+    </div>
+    <script src="./js/deck.js"></script>
+    <script src="./js/players.js"></script>
+    <script src="./js/index.js"></script>
+   
 </body>
 </html>

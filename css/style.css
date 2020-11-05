@@ -16,7 +16,10 @@
     margin: 1px;
     font-size: 1vw;
     font-family: sans-serif;
+    cursor: pointer;
 }
+
+
 /* .card-red {
     border: 1px solid black;
     display: flex;
@@ -61,6 +64,6 @@
     color: black;
     background-color: white;
     cursor: pointer;
-    
+        
 }
 

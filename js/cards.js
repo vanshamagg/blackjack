@@ -72,6 +72,17 @@ class Deck {
                 $(`#${id}`).append(`<div class = "suit">${String.fromCharCode(0X2665)}</div>`);
             }
             
+            $(`#${id}`).on('mouseover', function() {
+                $(this).css( {
+                    "background-color":"blue"
+                });
+            });
+            $(`#${id}`).on('mouseleave', function() {
+                $(this).css( {
+                    "background-color":"white"
+                });
+            });
+                    
             
         }
     }
@@ -89,3 +100,4 @@ $("#btn1").on('click', function () {
     $(".deck").css("display", "none");
     $(".deck").fadeIn(600);
 })
+
