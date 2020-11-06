@@ -48,10 +48,10 @@ body {
     font-size: 30px ;
 }
 
-.dealer > .hand, .players > .hand {
+.dealer  .hand {
     min-width: 200px;
     background-color: lawngreen;
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     padding: 2px;
 }
@@ -80,19 +80,66 @@ body {
     text-align: center;
 }
 /* Dealer's Area End */
+
+/* ACTION AREA */
 .actions {
     background-color: #222121;
     height: 32vh;
     width: 50vw;
     border: 1px solid black;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
 }
-.players {
+
+.actions > #start-btn {
+    padding:10px;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    border-radius: 8px;
+    border-style: none;
+    background-color: aqua;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.actions > #start-btn:hover {
+    padding: 12px;
+    font-weight: bold;
+}
+
+
+/* ACTION AREA END */
+
+/* PLAYER AREA START */
+.players-area {
+    background:transparent;
+    height: 30vh;
+    min-width: 200px;  
+    width: 98vw;  
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.player {
     background:transparent;
     height: 30vh;
     min-width: 200px;    
     border: 1px solid black;
     display: flex;
     flex-direction: row;
-
+    
+   
 }
+.player > .hand {
+    min-width: 200px;
+    background-color: lawngreen;
+    display: flex;
+    flex-direction: row;
+    padding: 2px;
+}
+
+
+/* PLAYER AREA END */

@@ -23,14 +23,7 @@ class Card {
     }
     
     getCard() {
-        return {
-            "id": this.id,
-            "suit": this.suit,
-            "value" : this.value,
-            "color": this.color,
-            "flipped":this.isFlipped,
-            "suitCharacter": this.suitChar,
-        }
+        return this;
     }
 
     renderCard(str) {
@@ -41,11 +34,36 @@ class Card {
             $(`#${this.id}`).append(`<div class = "card-value">${this.value}</div>`);
             $(`#${this.id}`).append(`<div class = "card-suite">${this.suitChar}</div>`);
             $(`#${this.id}`).css("color", `${this.color}`);
+            $(`#${this.id}`).hide();
+            $(`#${this.id}`).slideDown(600);
         }
         else {
             $(str).append(`<div class = "card card-flipped" id =  "${this.id}"> </div>`);
             $(`#${this.id}`).append(`<div class = "card-value">${this.value}</div>`);
             $(`#${this.id}`).append(`<div class = "card-suite">${this.suitChar}</div>`);
+            $(`#${this.id}`).hide();
+            $(`#${this.id}`).slideDown(600);
+            
+        }
+       
+    }
+    renderCardById(id) {
+        console.log("rendering card");
+        
+        if (this.isFlipped === false) {
+            $(`#${id}`).append(`<div class = "card" id =  "${this.id}"> </div>`);
+            $(`#${this.id}`).append(`<div class = "card-value">${this.value}</div>`);
+            $(`#${this.id}`).append(`<div class = "card-suite">${this.suitChar}</div>`);
+            $(`#${this.id}`).css("color", `${this.color}`);
+            $(`#${this.id}`).hide();
+            $(`#${this.id}`).slideDown(600);
+        }
+        else {
+            $(`#${id}`).append(`<div class = "card card-flipped" id =  "${this.id}"> </div>`);
+            $(`#${this.id}`).append(`<div class = "card-value">${this.value}</div>`);
+            $(`#${this.id}`).append(`<div class = "card-suite">${this.suitChar}</div>`);
+            $(`#${this.id}`).hide();
+            $(`#${this.id}`).slideDown(600);
             
         }
        
@@ -87,15 +105,14 @@ class Deck {
             this.deckOf52[location2] =  temp;
 
         }
-        console.log(this.deckOf52);
         return true;
     } 
     popCard() {
         return this.deckOf52.pop();
     }
 
-    renderDeck() {
-        $(".deck").text(this.deckOf52.length);
+    getNumberOfCards() {
+        $(".deck").find("p").text(this.deckOf52.length);
     }   
     
 }
