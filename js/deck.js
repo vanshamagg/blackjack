@@ -15,7 +15,7 @@ class Card {
         else
             this.suitChar =  String.fromCharCode(0X2665);
 
-        this.color =  (this.suit === 'spades' || this.suit === 'clubs') ? "black" : "red";
+        this.color =  (this.suit === 'spades' || this.suit === 'clubs') ? "blue" : "red";
     }
     flipCard(value) {
         this.isFlipped =  value;
@@ -27,18 +27,20 @@ class Card {
     }
 
     renderCard(str) {
-        console.log("rendering card");
+       
         
         if (this.isFlipped === false) {
             $(str).append(`<div class = "card" id =  "${this.id}"> </div>`);
             $(`#${this.id}`).append(`<div class = "card-value">${this.value}</div>`);
             $(`#${this.id}`).append(`<div class = "card-suite">${this.suitChar}</div>`);
             $(`#${this.id}`).css("color", `${this.color}`);
+            $(`#${this.id}`).css("border-color", `${this.color}`);
+        
             $(`#${this.id}`).hide();
             $(`#${this.id}`).slideDown(600);
         }
         else {
-            $(str).append(`<div class = "card card-flipped" id =  "${this.id}"> </div>`);
+            $(str).append(`<div class = "card-flipped" id =  "${this.id}"> </div>`);
             $(`#${this.id}`).append(`<div class = "card-value">${this.value}</div>`);
             $(`#${this.id}`).append(`<div class = "card-suite">${this.suitChar}</div>`);
             $(`#${this.id}`).hide();
@@ -48,7 +50,7 @@ class Card {
        
     }
     renderCardById(id) {
-        console.log("rendering card");
+        
         
         if (this.isFlipped === false) {
             $(`#${id}`).append(`<div class = "card" id =  "${this.id}"> </div>`);
@@ -59,7 +61,7 @@ class Card {
             $(`#${this.id}`).slideDown(600);
         }
         else {
-            $(`#${id}`).append(`<div class = "card card-flipped" id =  "${this.id}"> </div>`);
+            $(`#${id}`).append(`<div class = "card-flipped" id =  "${this.id}"> </div>`);
             $(`#${this.id}`).append(`<div class = "card-value">${this.value}</div>`);
             $(`#${this.id}`).append(`<div class = "card-suite">${this.suitChar}</div>`);
             $(`#${this.id}`).hide();
@@ -96,7 +98,7 @@ class Deck {
      * Shuffles the deck, we shuffle a 1000 times here 
      */
     shuffleDeck() {
-        for(let i =1; i<=1000; i++) {
+        for(let i =1; i<=1500; i++) {
             let location1  =  Math.floor(Math.random() * this.deckOf52.length);
             let location2  =  Math.floor(Math.random() * this.deckOf52.length);
             let temp =  this.deckOf52[location1];

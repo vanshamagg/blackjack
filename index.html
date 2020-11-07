@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/blackjack.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/blackjack.css" />
     <script src="./js/jquery-3.5.1.js"></script>
     <title>BlackJack</title>
-</head>
-<body>
-    <div class = "table">
-        <div class = "dealer">
-            <div class = "deck">
-                <p>52</p>
-            </div>
-            <div class = "hand">
-                
-            </div>
-            <div class = "bet-value"></div>
-        </div>
-        <div class = "actions">
-            <input type="button" value="START" id="start-btn" >
-        </div>
+  </head>
+  <body>
+    <div class="table">
+      <div class="dealer" id="dealer">
+        <div class="deck">Deck<p></p></div>
+        <div class="hand" id="dealer-hand"></div>
+        <div class="bet-value"></div>
+        <!-- <div class = "dealer-name">dealer</div> -->
+      </div>
+      <div class="actions">
+        <input type="button" value="START" id="start-btn" />
+        <input type="button" value="HIT" id="hit-btn" />
+        <input type="button" value="STAY" id="stay-btn" />
+      </div>
 
-        <div class = "players-area">
-            <!-- <div class = "player" id="player-1"></div>
+      <div class="players-area">
+        <!-- <div class = "player" id="player-1"></div>
             <div class = "player" id = "player-2"></div> -->
-        </div>
+      </div>
     </div>
     <script src="./js/deck.js"></script>
     <script src="./js/players.js"></script>
     <script src="./js/index.js"></script>
-   
-</body>
+  </body>
 </html>

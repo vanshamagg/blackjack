@@ -1,0 +1,20 @@
+{
+  "name": "CARD-GAME",
+  "version": "1.0.0",
+  "description": "## Learning Competencies By the end of this milestone ensure that you  - [ ] write tests for any program you are ever going to build  - [ ] are able to create and use object prototypes in js  - [ ] have understood how everything is an object in js & how powerful it is  - [ ] have practiced refactoring methods for your code  - [ ] able to appreciate the importance of thinking of time and planning of the project  - [ ] learn and practice a few software design patterns like Don't-Repeat-Yourself etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exponentsoftware/MS_Card-game_Lupus_Tep_Online_Full-time_2020_10.git"
+  },
+  "keywords": [],
+  "author": "Vansham Aggarwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/exponentsoftware/MS_Card-game_Lupus_Tep_Online_Full-time_2020_10/issues"
+  },
+  "homepage": "https://github.com/exponentsoftware/MS_Card-game_Lupus_Tep_Online_Full-time_2020_10#readme"
+}

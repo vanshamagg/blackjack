@@ -1,57 +1,63 @@
-const num = prompt("How Many players?");
-console.log(num);
 
-let beginRound = function() {
-    
-    // creating players 
-    for(let i = 1; i <= num; i++) {
-        console.log("Creating players");
-        let tmp  =  `<div class = "player" id =  "player-${i}"> 
+
+// const num = prompt("How Many players?");
+// const num = 3;
+$("#start-btn").on("click", beginRound);
+const dealer = new Player("dealer");
+const players = [];
+
+function beginRound() {
+  // creating players
+  const num = prompt("How Many players?");
+  const playerHands = [];
+  for (let i = 1; i <= num; i++) {
+    console.log("Creating players");
+    let tmp = `<div class = "player" id =  "player-${i}"> 
             <div class = "hand", id = "hand-player-${i}"> </div>
+            <div class = "player-name" id = "name-player-${i}">player-${i}</div>
         </div>`;
-        $(".players-area").append(tmp);
-        
-    }
+    let obj = new Hand(`hand-player-${i}`);
+    playerHands.push(obj);
+    $(".players-area").append(tmp);
+    let playerObj = new Player(`player-${i}`);
+    players.push(playerObj);
+  }
 
-    let deck1 =  new Deck();
-    deck1.shuffleDeck();
-    const firstRound = []
-    for (let i =0 ; i< num*2+2; i++) {
-        let temp =  deck1.popCard();
-        firstRound.push(temp);
-    }
+  let deck1 = new Deck();
+  deck1.shuffleDeck();
+  //   popping cards for the first round
+  const firstRound = [];
+  for (let i = 0; i < num * 2 + 2; i++) {
+    let temp = deck1.popCard();
+    firstRound.push(temp);
+  }
 
-    // two cards to dealer
-    
-    firstRound.shift().renderCard($(".dealer").find(".hand"));
-    firstRound[0].flipCard(true);
-    firstRound.shift().renderCard($(".dealer").find(".hand"));
-    
-    // rest cards to the players
-    
-    const playersHands =  $(".players-area").find(".hand");
+  // two cards to dealer
+  //   one flipped and one visible
 
-    // iterating through each player's hand
-    $(playersHands).each( function () {
-        let id  =  $(this).attr("id");
-        firstRound.shift().renderCardById(id);
-        firstRound.shift().renderCardById(id);
-        console.log(id);
-    })
+  dealer.giveCard(firstRound.shift());
+  firstRound[0].flipCard(true);
+  dealer.giveCard(firstRound.shift());
+  
+  //   console.log(dealersHand.computeValue());
+  // rest cards to the players
+  // fetching the array of players' hands
 
+  // iterating through each player's hand
+  // and creating Hand Objects
+
+  players.forEach((player) => {
+    player.giveCard(firstRound.shift());
+    player.giveCard(firstRound.shift());
+    console.log(player.computeHandValue());
+  });
+
+  setInterval(() => {
     deck1.getNumberOfCards();
+    $(".deck").find("p").fadeOut(500);
+    $(".deck").find("p").fadeIn(500);
+  }, 0);
 
-    $(".deck").find("p").fadeOut(600);
-
-    setInterval( ()=> {
-        $(".deck").find("p").fadeOut(500);
-        $(".deck").find("p").fadeIn(500);
-    },0);
-
-    clearInterval();
-    $("#start-btn").attr("disabled", "true");
-    
+  $("#start-btn").attr("disabled", "true");
+  return num;
 }
-
-$("#start-btn").on('click', beginRound);
-
