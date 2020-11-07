@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/blackjack.css" />
-    <script src="./js/jquery-3.5.1.js"></script>
-    <title>BlackJack</title>
-  </head>
-  <body>
-    <div class="table">
-      <div class="dealer" id="dealer">
-        <div class="deck">Deck<p></p></div>
-        <div class="hand" id="dealer-hand"></div>
-        <div class="bet-value"></div>
-        <!-- <div class = "dealer-name">dealer</div> -->
-      </div>
-      <div class="actions">
-        <input type="button" value="START" id="start-btn" />
-        <input type="button" value="HIT" id="hit-btn" />
-        <input type="button" value="STAY" id="stay-btn" />
-      </div>
+      <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="stylesheet" href="./css/blackjack.css" />
+            <script src="./js/jquery-3.5.1.js"></script>
+            <title>BlackJack</title>
+      </head>
+      <body>
+            <div class="table">
+              <div class = "blackjack">Blackjack</div>
+                  <div class="dealer" id="dealer">
+                        <div class="deck" style="display: none;">
+                              Deck
+                              <p></p>
+                        </div>
+                        <div class="hand" id="dealer-hand"></div>
+                        <div class="bet-value"></div>
+                        <div class="console"></div>
+                        <!-- <div class = "dealer-name">dealer</div> -->
+                  </div>
+                  <div class="actions">
+                        <input type="button" value="START" id="start-btn" />
+                        <input type="button" value="HIT" id="hit-btn" />
+                        <input type="button" value="STAY" id="stay-btn" />
+                        <input type="button" value="RESTART" id="restart-btn" />
+                  </div>
 
-      <div class="players-area">
-        <!-- <div class = "player" id="player-1"></div>
+                  <div class="players-area">
+                        <!-- <div class = "player" id="player-1"></div>
             <div class = "player" id = "player-2"></div> -->
-      </div>
-    </div>
-    <script src="./js/deck.js"></script>
-    <script src="./js/players.js"></script>
-    <script src="./js/index.js"></script>
-  </body>
+                  </div>
+            </div>
+            <!-- <script src="./js/deck.js"></script> -->
+            <script src="./js/card-deck-hand-player-classes.js"></script>
+            <script src="./js/index.js"></script>
+      </body>
 </html>

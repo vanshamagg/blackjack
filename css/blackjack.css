@@ -1,125 +1,144 @@
 body {
-    background-color: #121212;
-    -webkit-touch-callout: none; /* iOS Safari */
+      background-color: #121212;
+      -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
-       -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Old versions of Firefox */
-          -ms-user-select: none; /* Internet Explorer/Edge */
-              user-select: none; /* Non-prefixed version, currently
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
 }
 
-
-
 /* COMMON CLASSES START */
 .table {
-    background-color: #121212;
-    color:black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+      background-color: #121212;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: monospace;
 }
-
+.blackjack {
+    position: absolute;
+    color: white;
+    font-size: 10vw;
+    margin-top: 20px;
+}
 .card-flipped {
-    --basic-color: rgb(85, 12, 12);
-    width: 90px;
-    height: 25vh;
-    /* border: 1px solid violet; */
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 4px;
-    margin-left: 7px;
-    margin-right: 7px;
-    color: var(--basic-color);
-    background-color:var(--basic-color);
-    border: 1px solid blue;
+      --basic-color: rgb(85, 12, 12);
+      width: 90px;
+      height: 25vh;
+      /* border: 1px solid violet; */
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
+      margin-left: 7px;
+      margin-right: 7px;
+      color: var(--basic-color);
+      background-color: var(--basic-color);
+      border: 1px solid blue;
 }
 
 .card {
-    width: 90px;
-    height: 25vh;
-    /* border: 1px solid violet; */
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 4px;
-    margin-left: 7px;
-    margin-right: 7px;
-    
+      width: 90px;
+      height: 25vh;
+      /* border: 1px solid violet; */
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
+      margin-left: 7px;
+      margin-right: 7px;
 }
 
-.card:hover .card-value  {
-    background-color: white;
-    color: black;
-    
+.card:hover .card-value {
+      background-color: white;
+      color: black;
 }
-.card:hover .card-suite  {
-    background-color: white;
-    color: black;
+.card:hover .card-suite {
+      background-color: white;
+      color: black;
 }
-.card:hover   {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
+.card:hover {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
 }
 
 .card > .card-value {
-    font-family: sans-serif;
-    font-size: 30px;
-    margin: 2px;
-    /* color: inherit;
+      font-family: sans-serif;
+      font-size: 30px;
+      margin: 2px;
+      /* color: inherit;
     background-color: inherit; */
 }
 
 .card > .card-suite {
-    font-size: 100px;
-    text-align: center;
+      font-size: 100px;
+      text-align: center;
+}
+
+.console {
+      position: absolute;
+      right: 10px;
+      width: auto;
+      text-align: center;
+      padding-top: 70px;
+      font-size: 15px;
+      color: white;
+      /* border: 1px solid white; */
+      align-self: self-end;
+      /* margin-right: auto; */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
 }
 /* COMMON CLASSES END */
 
 /* Dealers Area START */
 
 .dealer {
-    background:transparent;
-    height: 30vh;
-    min-width: 100%;  
-    margin-top: 0px;  
-    
-    /* border: 1px solid    white; */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+      background: transparent;
+      height: 30vh;
+      min-width: 100%;
+      margin-top: 0px;
 
+      /* border: 1px solid    white; */
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
 }
 .deck {
-    /* background-color: indigo; */
-    position: absolute;
-    left:10px;
-    width: 100px;
-    text-align: center;
-    padding-top: 70px;
-    font-size: 30px ;
-    color: white;
-    /* border: 1px solid white; */
-    align-self: self-end;
-    /* margin-right: auto; */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+      /* background-color: indigo; */
+      position: absolute;
+      left: 10px;
+      width: 100px;
+      text-align: center;
+      padding-top: 70px;
+      font-size: 30px;
+      color: white;
+      /* border: 1px solid white; */
+      align-self: self-end;
+      /* margin-right: auto; */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
 }
 
 .deck p {
-    /* border: 1px solid whitesmoke; */
-    margin: 0px;
+      /* border: 1px solid whitesmoke; */
+      margin: 0px;
 }
 
-.dealer  .hand, .player > .hand {
-    min-width: 200px;
-    /* background-color: lawngreen; */
-    display: flex;
-    flex-direction: row;
-    padding: 2px;
-}   
+.dealer .hand,
+.player > .hand {
+      min-width: 200px;
+      /* background-color: lawngreen; */
+      display: flex;
+      flex-direction: row;
+      padding: 2px;
+}
 
 /* .dealer .dealer-name {
     width:100px;
@@ -138,71 +157,77 @@ body {
 
 /* ACTION AREA */
 .actions {
-    /* background-color: #222121; */
-    height: 32vh;
-    width: 50vw;
-    /* border: 1px solid black; */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;    
+      /* background-color: #222121; */
+      height: 32vh;
+      width: 50vw;
+      /* border: 1px solid black; */
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
 }
 
 .actions > input[type="button"] {
-    padding:10px;
-    font-family: monospace;
-    font-size: 1.2em;
-    border-radius: 8px;
-    border-style: none;
-    margin: 5px;
-    background-color: rgb(37, 37, 37);
-    color:white;
-    cursor: pointer;
-    transition: 0.3s;
+      padding: 15px;
+      font-family: monospace;
+      font-size: 1.8em;
+      border-radius: 8px;
+      border-style: none;
+      margin: 5px;
+      background-color: rgb(37, 37, 37);
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
 }
 .actions > input[type="button"]:hover {
-    padding: 12px;
-    font-weight: bold;
+      padding: 18px;
+      font-size: 1.9em;
+      font-weight: bold;
 }
 .actions > input[type="button"]:disabled {
-    display: none;
+      display: none;
 }
 
 /* ACTION AREA END */
 
 /* PLAYER AREA START */
 .players-area {
-    background:transparent;
-    height: 30vh;
-    min-width: 200px;  
-    width: 98vw;  
-    /* border: 1px solid black; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+      background: transparent;
+      height: 30vh;
+      min-width: 200px;
+      width: 98vw;
+      /* border: 1px solid black; */
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
 }
 
 .player {
-    background:transparent;
-    height: 30vh;
-    min-width: 200px;    
-    /* border: 1px solid white; */
-    display: flex;
-    flex-direction: column;
-    
-   
+      background: transparent;
+      height: 30vh;
+      min-width: 200px;
+      /* border: 1px solid white; */
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
 }
 
 .player > .player-name {
-    width:100%;
-    /* border: 1px solid white; */
-    /* direction: block; */
-    font-family: monospace;
-    color: white;
-    text-transform: uppercase;
-    font-size: 15px;
-    text-align: center;
-    margin-top: 15px;
+      width: 100%;
+      /* border: 1px solid white; */
+      /* direction: block; */
+      font-family: monospace;
+      color: white;
+      text-transform: uppercase;
+      font-size: 15px;
+      text-align: center;
+      margin-top: 5px;
+      margin-bottom: 15px;
+}
+
+.active {
+      border-bottom: 5px solid white;
 }
 /* .player > .hand {
     min-width: 200px;
@@ -211,6 +236,5 @@ body {
     flex-direction: row;
     padding: 2px;
 } */
-
 
 /* PLAYER AREA END */
