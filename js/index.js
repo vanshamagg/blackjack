@@ -1,9 +1,10 @@
 $("#start-btn").on("click", beginRound);
+
 const dealer = new Player("dealer");
 const players = [];
 const deck1 = new Deck();
 const firstRound = [];
-let activePlayer = 0;
+let activePlayer = 0; // holds the player index whose turn is now
 
 $("#hit-btn").hide();
 $("#stay-btn").hide();
@@ -12,17 +13,32 @@ $("#hit-btn").on("click", hit);
 $("#stay-btn").on("click", stay);
 $("#start-btn").hide().show(600);
 
+// animation effects on the restart button
 $("#restart-btn").on("click", function () {
       $("#hit-btn").hide(1000);
       $("#stay-btn").hide(1000);
       $(".players-area").hide(1000);
-      $(".dealer").hide(1000);
+      $(".dealer").hide(1000, ()=> {
+            $("#restart-btn").hide(600, ()=> {
+                  location.reload();
+            });
+      });
 });
+
 $("#restart-btn").hide();
 
+/**
+ * Initiates the round 1 of blackjack
+ * @author Vansham Aggarwal <vanshamagg@gmail.com>
+ */
 function beginRound() {
       // creating players
-      const num = prompt("How Many players?");
+      // number of players must be 1 - 5
+      const num = prompt("How Many players? (2 - 5)");
+      if (num < 2 || num > 5) {
+            alert("Enter a valid Number");
+            return;
+      }
       const playerHands = [];
       for (let i = 1; i <= num; i++) {
             console.log("Creating players");
@@ -36,26 +52,24 @@ function beginRound() {
             let playerObj = new Player(`player-${i}`);
             players.push(playerObj);
       }
+      console.log("Players Created!");
+      deck1.shuffleDeck(); // shuffling the deck
 
-      deck1.shuffleDeck();
       //   popping cards for the first round
-
       for (let i = 0; i < num * 2 + 2; i++) {
             let temp = deck1.popCard();
             firstRound.push(temp);
       }
 
       // two cards to dealer
-      //   one flipped and one visible
+      // one flipped and one visible
 
       dealer.giveCard(firstRound.shift());
       firstRound[0].flipCard(true);
       dealer.giveCard(firstRound.shift());
 
-      //   console.log(dealersHand.computeValue());
       // rest cards to the players
       // fetching the array of players' hands
-
       // iterating through each player's hand
       // and creating Hand Objects
 
@@ -70,6 +84,8 @@ function beginRound() {
             $(".deck").find("p").fadeIn(500);
       }, 0);
 
+      // the change of buttons after
+      // the completition of first round
       $("#start-btn").hide(1000);
       $("#restart-btn").show(1000);
       $("#hit-btn").show(1000);
@@ -79,10 +95,12 @@ function beginRound() {
       return num;
 }
 
-// the HIT FUNCTION
+/**
+ * The HIT function :)
+ * @author Vansham Aggarwal <vanshamagg@gmail.com>
+ */
 function hit() {
       if (players[activePlayer].status === "hit") {
-            // players[activePlayer].id;
             players[activePlayer].giveCard(deck1.popCard());
             consolify("NICE HIT! " + players[activePlayer].id);
 
@@ -108,7 +126,10 @@ function hit() {
       }
 }
 
-// STAY FUNCTION
+/**
+ * The STAY function
+ * @author Vansham Aggarwal <vanshamagg@gmail.com>
+ */
 function stay() {
       // When players before the last one STAY
       if (activePlayer < players.length - 1) {
@@ -132,25 +153,29 @@ function stay() {
 function consolify(str) {
       $(".console").text(str).hide().fadeIn(100).delay(2000).fadeOut(2000);
 }
-
+/**
+ * let's find the winner
+ * (logic is a lil messy)
+ * @author Vansham Aggarwal <vanshamagg@gmail.com>
+ */
 function findWinner() {
       // show dealer's hidden card
       dealer.hand.cards[1].flipCard(false);
       $(`#${dealer.hand.cards[1].id}`).remove();
-      // console.log(dealer.hand.cards[1]);
       dealer.hand.cards[1].renderCardById("dealer-hand");
 
-      // if dealer's hand's value is less than 16
-      // console.log(dealer.handValue);
+      // if dealer's hand's value is less than 17
+      // continue to draw cards
       while (dealer.handValue.every((value) => value < 17)) {
-        console.log("VANSHAM");
             dealer.giveCard(deck1.popCard());
             console.log(dealer.handValue);
       }
 
+      // if dealer's hand exceeds 21
       if (dealer.handValue.some((value) => value > 21)) {
             consolify("Dealer Exceeds 21! Everyone Takes their money home!");
       } else {
+            // if it doesnt exceed 21, then we check the wiiner
             let theGreaterValueOfDealersHand = dealer.handValue[1];
             let eligiBlePlayers = players.filter((player) => player.status === "stay");
             eligiBlePlayers.sort((p1, p2) => p2.handValue[1] - theGreaterValueOfDealersHand - (p1.handValue[1] - theGreaterValueOfDealersHand));
