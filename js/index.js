@@ -15,14 +15,13 @@ $("#start-btn").hide().show(600);
 
 // animation effects on the restart button
 $("#restart-btn").on("click", function () {
+      $(this).hide(1000, ()=> {
+            location.reload();
+      });
       $("#hit-btn").hide(1000);
       $("#stay-btn").hide(1000);
       $(".players-area").hide(1000);
-      $(".dealer").hide(1000, ()=> {
-            $("#restart-btn").hide(600, ()=> {
-                  location.reload();
-            });
-      });
+      $(".dealer").hide(1000);
 });
 
 $("#restart-btn").hide();

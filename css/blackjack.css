@@ -10,8 +10,8 @@ body {
       -khtml-user-select: none; /* Konqueror HTML */
       -moz-user-select: none; /* Old versions of Firefox */
       -ms-user-select: none; /* Internet Explorer/Edge */
-      user-select: none; /* Non-prefixed version, currently
-                                    supported by Chrome, Edge, Opera and Firefox */
+      user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+      font-family: monospace;
 }
 
 /* COMMON CLASSES START */
@@ -24,14 +24,17 @@ body {
       font-family: monospace;
 }
 .blackjack {
-      position: absolute;
       color: white;
       font-size: 10vw;
+      margin: auto;
       margin-top: 20px;
+      width: 90%;
+      text-align: center;
 }
 .card-flipped {
       --basic-color: rgb(85, 12, 12);
-      width: 90px;
+      width: 120px;
+      min-height: 180px;
       border-width: 1px;
       border-style: solid;
       border-radius: 4px;
@@ -43,8 +46,8 @@ body {
 }
 
 .card {
-      width: 90px;
-      max-height: 350px;
+      width: 120px;
+      min-height: 180px;
       border-width: 1px;
       border-style: solid;
       border-radius: 4px;
@@ -68,7 +71,7 @@ body {
 
 .card > .card-value {
       font-family: sans-serif;
-      font-size: 30px;
+      font-size: 1.5em;
       margin: 2px;
 }
 
@@ -97,7 +100,8 @@ body {
 
 .dealer {
       background: transparent;
-      max-height: 200px;
+      /* max-height: 200px; */
+      min-height: 100px;
       min-width: 100%;
       margin-top: 0px;
       display: flex;
